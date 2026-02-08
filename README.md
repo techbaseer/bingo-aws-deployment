@@ -1,146 +1,119 @@
-## Hi there! this my new project
-Welcome to the Bingo App Deployment project! This project demonstrates how to deploy a Bingo application using modern DevOps tools and practices, following a DevSecOps approach.
+# Bingo Application – End-to-End DevOps Project
 
-## 🛠️ **Tools & Services Used**
+## Overview
+This repository represents a complete DevOps lifecycle project built
+around a real-time Bingo application. The goal of this project is to
+design, deploy, secure, and operate an application using modern
+DevOps and cloud-native tools, following real industry practices.
 
-| **Category**       | **Tools**                                                                                                                                                                                                 |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Version Control** | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)                                                                                                       |
-| **CI/CD**           | ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white)                                                                                                    |
-| **Code Quality**    | ![SonarQube](https://img.shields.io/badge/SonarQube-4E9BCD?style=flat-square&logo=sonarqube&logoColor=white)                                                                                              |
-| **Containerization**| ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)                                                                                                       |
-| **Orchestration**   | ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)                                                                                          |
-| **Monitoring**      | ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) |
-| **Security**        | ![OWASP](https://img.shields.io/badge/OWASP-000000?style=flat-square&logo=owasp&logoColor=white) ![Trivy](https://img.shields.io/badge/Trivy-00979D?style=flat-square&logo=trivy&logoColor=white)         |
+The project covers infrastructure provisioning, containerization,
+CI/CD pipelines, orchestration, monitoring, and security, implemented
+incrementally within the same repository.
 
----
-## 🚦 **Project Stages**
+## Application Background
+The Bingo application is an open-source real-time multiplayer game
+built using Next.js, React, and Socket.io (WebSockets).
 
-### **Phase 1: Deployment to Docker Container**
-- Containerize the application using Docker.
-- Build and push Docker images to a container registry.
-- Run the application in a Docker container.
+The application logic is open-source and is used here as a base to
+demonstrate DevOps, DevSecOps, and cloud deployment practices.
 
-### **Phase 2: Deployment to EKS Cluster with Monitoring**
-- Deploy the application to an **Amazon EKS (Elastic Kubernetes Service)** cluster.
-- Set up **Prometheus** and **Grafana** for monitoring and visualization.
-- Implement **Trivy** for vulnerability scanning and **OWASP** for security best practices.
+## DevOps Stack Used
 
----
+Version Control:
+- Git
+- GitHub
 
-## 📂 **Code Repository**
-Explore the code and contribute to the project:  
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aseemakram19/bingo1.git)
+Cloud & Infrastructure:
+- AWS EC2
+- Ubuntu Linux
+- AWS Security Groups
 
----
-## 📹 **Project Video**
-Watch the step-by-step deployment process:  
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=HeGnExuCVmQ&t=616s)
+Web & Runtime:
+- Node.js
+- Nginx (Reverse Proxy)
+- PM2 (Process Manager)
 
----
-## 🚀 **Other DevOps Projects**
+Containerization:
+- Docker
+- Docker Compose
 
-| **Project**                                | **Video Link**                                                                                   |
-|--------------------------------------------|--------------------------------------------------------------------------------------------------|
-| **JAVA APPLICATION DEPLOYMENT Project**                     | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=R98DHKqAEos) |
+CI/CD:
+- Jenkins
 
-## 🤝 **Connect with Me**
+Orchestration:
+- Kubernetes (EKS)
 
-Let's connect and discuss DevOps!  
+Monitoring & Observability:
+- Prometheus
+- Grafana
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohammed-aseem-akram/)  
+Security:
+- OWASP best practices
+- Trivy vulnerability scanning
 
-The objective of this project was to learn how to use web sockets and how to create a multiplayer game. It was created using Next.js, React and Sockets.io. You can check it out  for the English version. Feel free to modify as you wish.
+## Project Phases
 
-If you want the logic of the game bingo, go to utils → bingo.js.
+Phase 1: EC2-Based Deployment
+- Application deployed on AWS EC2
+- Node.js environment configured as per engine requirements
+- Application exposed via Nginx reverse proxy (80 → 3000)
+- PM2 used for process management
+- Real-world production issues resolved (networking, ports, gateway errors)
 
+Phase 2: Containerization
+- Dockerfile created for the application
+- Docker images built and executed
+- Docker Compose used for multi-service management
 
+Phase 3: CI/CD Pipeline
+- Jenkins pipeline implemented
+- Automated build and deployment workflows
+- Integration with GitHub repository
 
-## Getting Started
+Phase 4: Kubernetes Orchestration
+- Application deployed on Kubernetes (EKS)
+- Kubernetes manifests used for deployments and services
+- Scalability and rolling updates handled via Kubernetes
 
-Install node.js 16  version  v16.20.2 combatiable with our application
-        npm 8.19.4  version 
-First, run the development server:
+Phase 5: Monitoring & Security
+- Prometheus configured for metrics collection
+- Grafana dashboards for visualization
+- Trivy used for container vulnerability scanning
+- Security best practices applied throughout the pipeline
 
-Follow this sequence to test out app :
-1. cd bingo1
-2. npm install
-3. npm run dev
+## Architecture Overview
 
-to run in background
+User
+ ↓
+Browser
+ ↓
+Nginx
+ ↓
+Application (Next.js / Socket.io)
+ ↓
+Container Runtime
+ ↓
+Kubernetes Cluster
+
+## How to Run (Development / Server)
+
+npm install
+npm run dev
+
+Or run in background:
+
 nohup npm run dev &
 
-Explaination below:
+## Learning Objectives
+- End-to-end DevOps workflows
+- Practice real-world production deployments
+- CI/CD automation with Jenkins
+- Work with Docker and Kubernetes
+- Apply monitoring and security in DevOps pipelines
+- Gain hands-on cloud troubleshooting experience
 
-cd bingo1: Change directory to "bingo1" to navigate into the project's root directory.
-
-npm install: Install project dependencies using npm, ensuring required packages are downloaded and configured.
-
-npm run dev: Run the development script, typically used to start a development server or execute other development-related tasks.
-
-nohup npm run dev &: Run the "npm run dev" command in the background using nohup, allowing it to continue running even after the terminal is closed.
-
-
-
-
-
-```
-Docker Container application 
-
-docker build -t imagename rootdir
-
-
-docker build -t bingo .
-
-docker run -p 3000:3000 -d --name bingo your-image-name
-
-
-
-docker run -p 3000:3000 -d --name bingoapp bingo
-
-
-# Build and start the Docker container
-docker-compose up -d
-
-To stop the containers, you can use the following command:
-# Stop the Docker containers
-
-docker-compose down
-
-# Restart the Docker after permissions Granted
-
-sudo usermod -aG docker ubuntu
-
-sudo usermod -aG jenkins $USER
-
-sudo systemctl restart docker
-
-docker-compose build
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Example
-
-You can create a room where multiplayers can join to participate:
-![](https://github.com/andres0ares/bingo/blob/main/public/bingo_prev1.gif)
-
-Changes will reflect on all participants' screens in the room:
-![](https://github.com/andres0ares/bingo/blob/main/public/bingo_prev2.gif)
-
-## FlowChart
-
-```mermaid
-flowchart TB
-  home --> cond{select}
-  cond --> cr[create room]
-  cond --> jr[join room]
-  cr --> wp[wait players / start game]
-  jr --> ws[wait start game]
-  wp --> hd[host display]
-  ws --> pd[player display]
-  hd --> dw[display winner]
-  pd --> dw
-  
-```
+## Notes
+This repository is intentionally designed as a single evolving DevOps
+project, where all tools and stages are implemented progressively.
+The focus is on learning, experimentation, and real-world simulation
+of enterprise DevOps environments.
